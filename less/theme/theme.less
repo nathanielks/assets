@@ -101,10 +101,45 @@ body {
 
 /* =============================================================================
    Media Queries
+Breakpoints provided by 320 and Up by Andy Clarke
+URL: http://stuffandnonsense.co.uk/projects/320andup/
+Apache License: v2.0. http://www.apache.org/licenses/LICENSE-2.0
    ========================================================================== */
 
-/*@import 'media/240';*/
-/*@import 'media/480';*/
-/*@import 'media/600';*/
-/*@import 'media/912';*/
-/*@import 'media/1888';*/
+/*@media print {*/
+/*@import "media/print.less";*/
+/*}*/
+
+/*// 480px*/
+/*@media only screen and (min-width: 480px) {*/
+/*@import "media/480.less";*/
+/*}*/
+
+/*// 600px*/
+/*@media only screen and (min-width: 600px) {*/
+/*@import "media/600.less";*/
+/*}*/
+
+/*// 768px*/
+/*@media only screen and (min-width: 768px) {*/
+/*@import "media/768.less";*/
+/*}*/
+
+/*// 992px*/
+/*@media only screen and (min-width: 992px) {*/
+/*@import "media/992.less";*/
+/*}*/
+
+/*// 1382px*/
+/*@media only screen and (min-width: 1382px) {*/
+/*@import "media/1382.less";*/
+/*}*/
+
+/*// 2x*/
+/*@media*/
+/*only screen and (-webkit-min-device-pixel-ratio: 1.5), */
+/*only screen and (min--moz-device-pixel-ratio: 1.5),*/
+/*only screen and (min-device-pixel-ratio: 1.5) {*/
+/*@import "media/2x.less"; */
+/*}*/
+
