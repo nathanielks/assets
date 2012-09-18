@@ -1,41 +1,192 @@
 /* =============================================================================
-   Base
-   ========================================================================== */
-
-body {
-  margin: 0;
-  font-size: @baseFontSize;
-  line-height: @baseLineHeight;
-  /*color: @grey;*/
-  /*background-color: @tan;*/
-}
-
-.button{
-	.border-radius(3px);
-	padding: 8px 10px;
-	text-transform: uppercase;
-	font-weight: 700;
-	font-size: 11px;
-}
-
-
-.red{
-	color: @red;
-	&.button{
-		color: white;
-		background: @red;
-		&:active, &:hover{
-			background: darken(@red, 10%);	
-		}
-	}
-}
-
-
-/* =============================================================================
    Grid
    ========================================================================== */
 
 
+/* =============================================================================
+   Base
+   ========================================================================== */
+*{
+	.box-sizing();
+}
+
+html{
+/* 	background-color: @color; */
+}
+
+html, button, input, select, textarea {
+	font-smooth:always;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+body {
+}
+
+::selection{
+/*
+	background-color: @color;
+	color: white;
+*/
+}
+::-moz-selection{
+/*
+	background-color: @color;
+	color: white;
+*/
+}
+::-webkit-input-placeholder {
+/* 	color: @white; */
+}
+
+:-moz-placeholder {  
+/* 	color: @white;   */
+}
+
+h1, h2, h3, h4, h5, h6{
+
+}
+h1{
+/*
+	color: @color;
+	font-size: ;
+	margin-bottom: ;
+*/
+}
+
+h2{
+/*
+	color: @color;
+	font-size: ;
+	margin-bottom: ;
+*/
+}
+
+h3{
+/*
+	color: @color;
+	font-size: ;
+	margin-bottom: ;
+*/
+}
+
+h4{
+/*
+	color: @color;
+	font-size: ;
+	margin-bottom: ;
+*/
+}
+h5{
+/*
+	color: @color;
+	font-size: ;
+	margin-bottom: ;
+*/
+}
+
+a:link, a:visited{
+/* 	color: @color; */
+}
+
+a:active, a:hover{
+	text-decoration: underline;
+}
+
+p{
+	line-height: 22/@em;
+	margin-bottom: 0;
+	margin-bottom: 13/@em;
+	&:last-child{
+		margin-bottom: 0;
+	}
+}
+
+li{
+	&:only-child{
+		margin-bottom: 0;
+	}
+}
+
+.replaced{
+	border: 0;
+	font-size: 0;
+	line-height: 0;
+	text-shadow: none;
+	color: transparent;
+	height: 0;
+	overflow: hidden;
+}
+
+.no-after{
+	&:after{
+		content: '';
+		float: none;
+		font-size: 0;
+		line-height: 0;
+		background-color: transparent;
+		color: transparent;
+	}
+}
+
+.color{
+/* 	.color-class(@color1, @color2, @textcolor); */
+}
+
+
+/* =============================================================================
+   Nav
+   ========================================================================== */
+
+
+
+
+.navbar{
+	a:link, a:visited{
+		color: white;
+	}
+	a:hover{
+	}
+	.btn-navbar{
+		&:hover{
+		}
+	}
+	.navbar-inner{
+	}
+	.container{
+		max-width: @total-width; // this is from the grid
+		.mlrauto;
+	}
+	.logo{
+		img{
+		}
+		&:hover{
+		}
+	}
+	.active{
+	}
+	.nav{
+		.active > a:hover{
+			background-color: @teal;
+			color: @white;
+		}
+		& > li{
+			& > a{
+			}
+		}
+	}
+}
+
+.search-form{
+	input[type="text"]{
+		&:focus{
+			outline: 0;
+		}
+	}
+	input[type="submit"]{
+	}
+}
 
 /* =============================================================================
    Header
@@ -46,100 +197,284 @@ body {
    Slider
    ========================================================================== */
 
+/* Browser Resets */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;} 
+
+/* FlexSlider Necessary Styles
+*********************************/ 
+.flexslider {
+	margin: 0; 
+	padding: 0;
+}
+
+.flexslider .slides > li {
+	display: none; 
+	-webkit-backface-visibility: hidden;
+} /* Hide the slides before the JS is loaded. Avoids image jumping */
+
+.flexslider .slides img {
+	min-width: 1280px;
+	width: 100%; 
+	display: block;
+	height: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.flex-pauseplay span {
+	text-transform: capitalize;
+}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
+html[xmlns] .slides {display: block;} 
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+
+.flex-viewport{
+	height: 100%;
+	width: 100%;
+}
+.slides{
+	margin: 0 auto;
+	padding: 0;
+	height: 100%;
+}
+.slide{
+	position: relative;
+	margin-bottom: 100px;
+	z-index: 1;
+	margin: 0 auto;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	.bg-container{
+		height: 100%;
+		width: 100%;
+	}
+	.bg{
+		height: 100%;
+	}
+}
+
+#home-slider{
+	height: 450px;
+	position: relative;
+	overflow: hidden;
+}
+
+.flex-nav-container{
+	a{
+		&:hover{
+		}
+	}
+	ul, ol{
+	}
+	li{
+	}
+}
+.flex-nav{
+}
+.flex-control-nav{
+	li{
+		&:first-child{
+		}
+		a{
+			&:active, &:hover{
+			}
+		}
+		&.flex-active{ 
+			a{
+			}
+		}
+	}
+}
+
+.flex-direction-nav{
+}
+
+.flex-prev, .flex-next{
+}
+
+.flex-next{
+}
+
 /* =============================================================================
-   Navbar
+   content
    ========================================================================== */
 
+.container{
+}
 
-/* =============================================================================
-   Content
-   ========================================================================== */
+[class^="row-"]{
+	&:first-child{
+	}
+}
 
+.row-full{
+	.row();
+}
+
+.row-inner{
+}
+
+.quarter{
+	.column(3);
+}
+
+.third{
+	.column(4);
+}
+
+.half{
+	.column(5);
+}
+
+.two-thirds{
+	.column(7);
+}
+.column-full{
+	.column(12);
+}
 
 /* =============================================================================
    Home Page
    ========================================================================== */
 
+#content{
+	position: relative;
+	z-index: 1;
+	background-color: white;
+}
+
+.articles-list{
+	a{
+		&:first-child{
+		}
+		&.latest{
+		}
+		&:active, &:hover{
+		}
+	}
+	img{
+	}
+	.content{
+		p{
+		}
+	}
+}
+
+
 /* =============================================================================
-   About Page
+   Page
    ========================================================================== */
 
+.page-content{
+	.column(10);
+}
 
+[class*="templatessidebar"]{
+
+	.row-inner{
+		.row(7);
+	}
+	.page-content{
+		.column(7);
+	}
+	#page-subcontent{
+		.column(10);
+		.fright;
+		
+	}
+
+}
 
 /* =============================================================================
    Sidebar
    ========================================================================== */
 
-
+#sidebar{
+	.column(3);
+}
 
 /* =============================================================================
    Posts
    ========================================================================== */
 
+#blog{
+   .column(9);
+}
 
+.post{
+}
+
+.pagination{
+}
+
+ul.page-numbers{
+	li{
+		&:first-child{
+		}
+	}
+	.current, a{
+	}
+	a:hover, a:active{
+	}
+	.current{
+	}
+	.dots{
+	}
+}
+
+.single{
+}
 
 /* =============================================================================
    Post Comments
    ========================================================================== */
 
 
-
 /* =============================================================================
    Widgets
    ========================================================================== */
 
+#sidebar-blog{
+	.column(3);
+}
+
+.widget{
+	margin-bottom: 20px;
+}
 
 /* =============================================================================
    Footer
    ========================================================================== */
 
+footer{
+	a:link, a:visited{
+	}
+	.container{
+	}
+	ul{
+	}
+	li{
+		&:first-child{
+		}
+	}
+}
+
 /* =============================================================================
-   Forms
+   Shortcodes
    ========================================================================== */
-
-
-
-/* =============================================================================
-   Media Queries
-Breakpoints provided by 320 and Up by Andy Clarke
-URL: http://stuffandnonsense.co.uk/projects/320andup/
-Apache License: v2.0. http://www.apache.org/licenses/LICENSE-2.0
-   ========================================================================== */
-
-/*@media print {*/
-/*@import "media/print.less";*/
-/*}*/
-
-/*// 480px*/
-/*@media only screen and (min-width: 480px) {*/
-/*@import "media/480.less";*/
-/*}*/
-
-/*// 600px*/
-/*@media only screen and (min-width: 600px) {*/
-/*@import "media/600.less";*/
-/*}*/
-
-/*// 768px*/
-/*@media only screen and (min-width: 768px) {*/
-/*@import "media/768.less";*/
-/*}*/
-
-/*// 992px*/
-/*@media only screen and (min-width: 992px) {*/
-/*@import "media/992.less";*/
-/*}*/
-
-/*// 1382px*/
-/*@media only screen and (min-width: 1382px) {*/
-/*@import "media/1382.less";*/
-/*}*/
-
-/*// 2x*/
-/*@media*/
-/*only screen and (-webkit-min-device-pixel-ratio: 1.5), */
-/*only screen and (min--moz-device-pixel-ratio: 1.5),*/
-/*only screen and (min-device-pixel-ratio: 1.5) {*/
-/*@import "media/2x.less"; */
-/*}*/
 

@@ -41,6 +41,8 @@
   , toggle: function (e) {
       var $this = $(this)
         , $parent
+        , dropdownMenu = $this.next('.dropdown-menu')
+        , dropdown = $this.parents('.dropdown')
         , selector
         , isActive
 
@@ -56,11 +58,14 @@
       $parent = $(selector)
       $parent.length || ($parent = $this.parent())
 
-      isActive = $parent.hasClass('open')
+      if ( !$parent.hasClass('open') ) {
+          clearMenus();
+          $parent.addClass('open')
+            dropdownMenu.slideDown('fast');
 
-      clearMenus()
-
-      if (!isActive) $parent.toggleClass('open')
+      } else{
+          clearMenus();
+      }
 
       return false
     }
@@ -69,6 +74,7 @@
 
   function clearMenus() {
     $(toggle).parent().removeClass('open')
+    $('.dropdown-menu').slideUp('fast');
   }
 
 

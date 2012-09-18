@@ -4,3 +4,56 @@
   -o-text-shadow: @shadow;
   text-shadow: @shadow;
 }
+
+.color-class(@color, @color2, @text: white){
+	color: @color;
+	&:link, &:visited{
+		color: @color;
+	}
+	&.button{
+		color: @text;
+		background: @color;
+		&:active, &:hover{
+			background: @color2;	
+		}
+	}
+	&.bg{
+		color: @text;
+		background-color: @color;
+		h1, h2, h3, h4, h5, h6, p, span{
+			color: @white;
+		}
+		input, textarea{
+			color: @text;
+		}
+		::-webkit-input-placeholder {
+			color: @text;
+		}
+
+		:-moz-placeholder {  
+			color: @text;  
+		}
+		.button{
+			color: white;
+		}
+	}
+}
+.icon-before(@content, @color: white, @font: FontAwesome, @margin-right: 8px ){
+	&:before {
+		font-family: @font;
+		font-weight: normal;
+		font-style: normal;
+		display: inline-block;
+		text-decoration: inherit;
+		content: @content;
+		color: @color;
+		margin-right: @margin-right;
+		vertical-align: top;
+	}
+}
+.box-sizing(@boxsize: border-box) {
+	-webkit-box-sizing : @boxsize;
+	-moz-box-sizing : @boxsize;
+	-ms-box-sizing : @boxsize;
+	box-sizing : @boxsize; 
+}

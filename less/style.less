@@ -2,5 +2,20 @@
 @import 'theme/variables';
 @import 'bootstrap/bootstrap';
 @import 'base/base';
+@import 'theme/font-awesome';
 @import 'theme/theme-mixins';
 @import 'theme/theme';
+
+// RESPONSIVE CLASSES
+@import "bootstrap/responsive-utilities.less";
+
+// From 979px and below, show a button to toggle navbar contents
+@import "bootstrap/responsive-navbar.less";
+
+@import 'media/phone-tablet.less';
+
+// Tablets to regular desktops
+@import 'media/tablet.less';
+
+// Phones to portrait tablets and narrow desktops
+@import 'media/phone.less';
